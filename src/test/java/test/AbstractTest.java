@@ -1,7 +1,7 @@
 package test;
 
-import dto.TestProperties;
-import dto.WebDriverProperties;
+import dto.TestAttributeDTO;
+import constant.WebDriverAttribute;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -11,22 +11,22 @@ import java.util.concurrent.TimeUnit;
 
 public abstract class AbstractTest {
 
-    private final WebDriverProperties webDriverProperties;
+    private final WebDriverAttribute webDriverAttribute;
     private final String testingUrl;
 
     protected final WebDriver webDriver;
 
     public AbstractTest() {
-        this.webDriverProperties = getTestProperties().webDriverProperties();
-        this.testingUrl = getTestProperties().testWebsite().getUrl();
-        this.webDriver = this.webDriverProperties.getWebDriver();
+        this.webDriverAttribute = getTestAttribute().webDriverAttribute();
+        this.testingUrl = getTestAttribute().testWebsite().getUrl();
+        this.webDriver = this.webDriverAttribute.getWebDriver();
     }
 
-    protected abstract TestProperties getTestProperties();
+    protected abstract TestAttributeDTO getTestAttribute();
 
     @Before
     public void initializeTest() {
-        System.setProperty(webDriverProperties.getWebDriverProperty(), webDriverProperties.getWebDriverPath());
+        System.setProperty(webDriverAttribute.getWebDriverProperty(), webDriverAttribute.getWebDriverPath());
         webDriver.get(testingUrl);
     }
 

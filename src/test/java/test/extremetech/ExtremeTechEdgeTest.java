@@ -1,16 +1,16 @@
 package test.extremetech;
 
-import dto.TestProperties;
-import dto.TestWebsite;
-import dto.WebDriverProperties;
+import dto.TestAttributeDTO;
+import constant.TestWebsite;
+import constant.WebDriverAttribute;
 import test.AbstractTest;
 
 public abstract class ExtremeTechEdgeTest extends AbstractTest {
 
     @Override
-    protected TestProperties getTestProperties() {
-        return new TestProperties(
-                WebDriverProperties.EDGE_DRIVER,
+    protected TestAttributeDTO getTestAttribute() {
+        return new TestAttributeDTO(
+                WebDriverAttribute.EDGE_DRIVER,
                 TestWebsite.EXTREME_TECH_CR
         );
     }

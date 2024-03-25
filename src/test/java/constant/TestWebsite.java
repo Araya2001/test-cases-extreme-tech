@@ -1,4 +1,4 @@
-package dto;
+package constant;
 
 public enum TestWebsite {
     EXTREME_TECH_CR("https://extremetechcr.com/tienda/")
